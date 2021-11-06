@@ -1,0 +1,6 @@
+const $URL_BASE = "127.0.0.1:9090"
+const $URL_CATEGORY = $URL_BASE + "/api/Category/"
+const $URL_CLOUD = $URL_BASE + "/api/Cloud/"
+const $URL_CLIENT = $URL_BASE + "/api/Client/"
+const $URL_MESSAGE = $URL_BASE + "/api/Message/"
+const $URL_RESERVATION = $URL_BASE + "/api/Reservation/"
