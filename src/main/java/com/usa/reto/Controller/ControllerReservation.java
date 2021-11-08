@@ -1,6 +1,8 @@
 package com.usa.reto.Controller;
 
 import com.usa.reto.Model.Reservation;
+import com.usa.reto.Report.ClientCounter;
+import com.usa.reto.Report.ReservationStatus;
 import com.usa.reto.Service.ServiceReservation;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +48,21 @@ public class ControllerReservation {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") int id){
         return service.delete(id);
+    }
+    
+    @GetMapping("/report-status")
+    public ReservationStatus getReservas() {
+        return service.getReportReservationStatus();
+    }
+
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
+    public List<Reservation> getTimeReservation(@PathVariable("dateOne") String dateOne, @PathVariable("dateTwo") String dateTwo) {
+        return service.getReportsTimeReservations(dateOne, dateTwo);
+    }
+
+    @GetMapping("/report-clients")
+    public List<ClientCounter> getClients() {
+        return service.ServiceTopClients();
     }
     
 }

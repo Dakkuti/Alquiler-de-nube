@@ -1,7 +1,13 @@
 package com.usa.reto.Service;
 
 import com.usa.reto.Model.Reservation;
+import com.usa.reto.Report.ClientCounter;
+import com.usa.reto.Report.ReservationStatus;
 import com.usa.reto.Repository.RepositoryReservation;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,5 +70,31 @@ public class ServiceReservation {
             return true;
         }).orElse(false);
         return aBoolean;
+    }
+    
+    public ReservationStatus getReportReservationStatus() {
+        List<Reservation> completed = repository.ReservationStatus("completed");
+        List<Reservation> cancelled = repository.ReservationStatus("cancelled");
+        return new ReservationStatus(completed.size(), cancelled.size());
+    }
+    
+    public List<Reservation> getReportsTimeReservations(String dateA, String dateB) {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Date dateOne = new Date();
+        Date dateTwo = new Date();
+        try {
+            dateOne = format.parse(dateA);
+            dateTwo = format.parse(dateB);
+        } catch (ParseException evt) {
+        }
+        if (dateOne.before(dateTwo)) {
+            return repository.TimeReservation(dateOne, dateTwo);
+        } else {
+            return new ArrayList<>();
+        }
+    }
+    
+    public List<ClientCounter> ServiceTopClients() {
+        return repository.getTopClients();
     }
 }
