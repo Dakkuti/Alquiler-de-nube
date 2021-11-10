@@ -1,23 +1,23 @@
-import { URL_MESSAGE, URL_CLOUD } from "./api.js";
+import { URL_RESERVATION, URL_CLOUD } from "./api.js";
 
-function postMessage(){
+function postReservation(){
     $.ajax({
-        url :  URL_MESSAGE + "save",
+        url :  URL_RESERVATION + "save",
         type:   "POST",
         data:   JSON.stringify({
-            messageText: $("#messageText").val(),
+            startDate: document.getElementById("startDate").value,
+            devolutionDate: document.getElementById("startDate").value,
             cloud: {id: $("#idCloud").val()},
             client: {idClient: 1}
         }),
         contentType:"application/JSON",
         datatype: "JSON",
         success:() => {
-            alert("Mensaje guardado")
-            getMessage()
+            alert("Reserva guardada")
+            getReservations()
         }
     });
 }
-
 
 function loadOptions(){
     $.ajax({
@@ -35,41 +35,42 @@ function loadOptions(){
     });
 }
 
-function getMessage(){
+function getReservations(){
     $.ajax({
-        url :   URL_MESSAGE + "all",
+        url :   URL_RESERVATION + "all",
         type:   "GET",
         datatype:   "JSON",
         success:(response) => {
-            loadMessage(response)
+            loadReservation(response)
         }
     });
 }
 
-function loadMessage(items){
-    let myTable = document.getElementsByTagName("laodMessages")
+function loadReservation(items){
+    let myTable = document.getElementsByTagName("loadReservations")
 
     for(let i = 0; i < items.length; i++){
 
         myTable+="<tr>";
-        myTable+="<td>"+items[i].messageText+"</td>";
+        myTable+="<td>"+items[i].idReservation+"</td>";
         myTable+="<td>"+items[i].cloud.name+"</td>";
+        myTable+="<td>"+items[i].client.idClient+"</td>";
         myTable+="<td>"+items[i].client.name+"</td>";
+        myTable+="<td>"+items[i].client.email+"</td>";
+        myTable+= items[i].client.score == null ? "<td>No tiene calificación</td>" : "<td>"+items[i].client.score+"</td>";
         myTable+="</tr>";
-
     }
     myTable+="</tbody>";
-    $("#loadMessages").empty()
-    $("#loadMessages").append(myTable);
+    $("#loadReservations").empty()
+    $("#loadReservations").append(myTable);
 }
 
-
-$('#postMessage').click(function(){
-    postMessage()
+$('#postReservation').click(function(){
+    postReservation()
 });
 
-$('#getMessages').click(function(){
-    getMessage()
+$('#getReservations').click(function(){
+    getReservations()
 });
 
 document.addEventListener("DOMContentLoaded", loadOptions())

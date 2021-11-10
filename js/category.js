@@ -6,7 +6,7 @@ function postGategory(){
         type:   "POST",
         data:   JSON.stringify({
             name: $("#name").val(),
-            description: $("description").val()
+            description: $("#description").val()
         }),
         contentType:"application/JSON",
         datatype: "JSON",
@@ -30,9 +30,8 @@ function getCategory(){
 
 function loadCategories(items){
     let myTable = document.getElementsByTagName("laodCategory")
-
+    
     for(let i = 0; i < items.length; i++){
-
         myTable+="<tr>";
         myTable+="<td>"+items[i].name+"</td>";
         myTable+="<td>"+items[i].description+"</td>";
@@ -40,7 +39,6 @@ function loadCategories(items){
         items[i].clouds.forEach(element => {
             myTable += `<li>${element.brand} -- ${element.year} -- ${element.name} -- ${element.description}</li>`;
         });
-
         myTable+="</ul></td>";
         myTable+="</tr>";
 
