@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <title>Inicio de Sesion</title>
+        <meta name="description" content=""/>
+        <meta name="viewport" content="width=device-width"/>
+        <base href="/"/>
+        <!--  CSS Style-->
+        <link rel="stylesheet" href="./css/style.css">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <!--FUENTES-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Acme&family=Courgette&family=Merienda&family=Neucha&family=Pacifico&family=Zen+Kaku+Gothic+Antique&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Acme&family=Courgette&family=Merienda&family=Neucha&family=Pacifico&family=Poppins:wght@200&family=Zen+Kaku+Gothic+Antique&display=swap" rel="stylesheet">
+        <!-- JQuery -->
+        <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+        <!-- Bootstrap JS -->
+        <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+        <!-- Main Js -->
+        <script type="module" src="./js/main.js"></script>
+    </head>
+    <body class="container-index">
+
+        <div class="signin unauthenticated">
+            <img class="mb-4 img logo" src="img/Cloud Computo.png" alt="logo">
+            <h1 class="title_Index">Inicia sesion con GitHub</h1>
+            <a class="btn btn-lg btn-primary btn-block" type="submit" href="/oauth2/authorization/github">Iniciar Sesion <i class="fab fa-github"></i></a>
+            <p class="mt-5 mb-3 text-muted ">&copy; 2021 - 2022</p>
+        </div>      
+        
+        <div class="container authenticated" style="display:none">
+            <!-- Navbar -->
+            <nav class="navbar fixed-top navbar-expand-lg navbar-light ">
+                <!-- Container wrapper -->
+                <div class="container-fluid">
+                    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!-- Collapsible wrapper -->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <!-- Navbar brand -->
+                    <a class="navbar-brand mt-2 mt-lg-0" href="#">
+                        <img
+                            src="./img/Cloud Computo.png"
+                            id="img-nav"
+                            alt="logo"
+                            loading="lazy"
+                        />
+                    </a>
+                    
+                        <!-- Left links -->
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="category.html">Categorias</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="cloud.html">Nubes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="client.html">Clientes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="message.html">Mensajes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="reservation.html">Reservaciones</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="dashboard.html">Reportes</a>
+                            </li>
+                        </ul>
+                        <!-- Left links -->
+                    </div>
+                    <!-- Collapsible wrapper -->
+
+                    <!-- Right elements -->
+                    <div class="d-flex align-items-center">
+                        <!-- User -->
+                        
+                        <button type="button" class="btn btn-primary me-3" id="close-session">Cerrar Sesion</button>
+                    </div>
+                    <!-- Right elements -->
+                </div>
+                <!-- Container wrapper -->
+            </nav>
+            <!-- Navbar -->
+            <div class="container">
+                <div class="container__bienvenido">
+                <img src="https://cdn-icons.flaticon.com/png/512/3899/premium/3899618.png?token=exp=1637281429~hmac=52b1cd0b2133e49feb6c066eac6a36b1" 
+                     height="35" 
+                     alt="" 
+                     loading="lazy"/>
+                    <span>Bienvenido: <a href="" id="user"></a></span>
+             
+                </div>
+                 <!---MENU INDEX--->
+                <div class="container menu">
+                    <div class="row">
+                        <div class="col-6 col-sm-4 categoria">
+                            <p>Categorias</p>
+                            <img src="https://cdn-icons.flaticon.com/png/512/5486/premium/5486907.png?token=exp=1637367736~hmac=506afdff7ccb02b6d54fd133d26ff3dc" alt="categoria"/>
+                            <a type="button" class="button-container-menu" href="category.html">Ir ahora</a>
+                        </div>
+                        
+                        <div class="col-6 col-sm-4 nube">
+                            <p>Nubes</p>
+                            <img src="https://cdn-icons.flaticon.com/png/512/2673/premium/2673925.png?token=exp=1637367850~hmac=32e72c46ad2fe0fb3ae2a4cee8c55a6a" alt="nube"/>
+                            <a type="button" class="button-container-menu" href="cloud.html">Ir ahora</a>
+                        </div>
+                        
+                        <div class="col-6 col-sm-4 cliente">
+                            <p>Clientes</p>
+                            <img src="https://cdn-icons.flaticon.com/png/512/2499/premium/2499081.png?token=exp=1637368088~hmac=b2841eb479630643ef831bf2afd6eccc" alt="cliente"/>
+                            <a type="button" class="button-container-menu" href="client.html">Ir ahora</a>
+                        </div>
+
+                        <div class="col-6 col-sm-4 mensajes">
+                            <p>Mensajes</p>
+                            <img src="https://cdn-icons.flaticon.com/png/512/4774/premium/4774135.png?token=exp=1637368432~hmac=d14e998499749f85eafc86f08721bfc3" alt="mensajes"/>
+                            <a type="button" class="button-container-menu" href="message.html">Ir ahora</a>
+                        </div>
+                        
+                        <div class="col-6 col-sm-4 reservaciones">
+                            <p>Reservaciones</p>
+                            <img src="https://cdn-icons-png.flaticon.com/512/2636/2636399.png" alt="reservaciones"/>
+                            <a type="button" class="button-container-menu" href="reservation.html">Ir ahora</a>
+                        </div>
+                        
+                        <div class="col-6 col-sm-4 reportes">
+                            <p>Reportes</p>
+                            <img src="https://cdn-icons-png.flaticon.com/512/3596/3596029.png" alt="reportes"/>
+                            <a type="button" class="button-container-menu" href="dashboard.html">Ir ahora</a>
+                        </div>
+                    </div>
+                </div>
+                    
+                
+            </div>
+
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <div class="col-md-4 d-flex align-items-center">
+                    <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                        <svg class="bi" width="30" height="24">
+                        <use xlink:href="#bootstrap" />
+                        </svg>
+                    </a>
+                    <span class="text-muted">&copy; 2021 - 2022, Cloud Computo INC</span>
+                </div>
+            </footer>
+        </div>
+           
+    </body>
+</html>
